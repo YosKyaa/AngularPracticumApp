@@ -1,0 +1,43 @@
+<div class="page">
+  <header class="page__header">
+    <h1>{{ greeting }}</h1>
+    <p>{{ welcomeMessage }}</p>
+  </header>
+
+  <section class="card">
+    <h2>1. Passing Variables dari Controller ke View</h2>
+    <p class="card__description">
+      Nilai string dari komponen: <span class="highlight">{{ greeting }}</span>
+    </p>
+    <p>Array angka favorit:</p>
+    <ul class="number-list">
+      <li *ngFor="let number of favoriteNumbers">
+        {{ number }}
+      </li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>2. Data Binding (Input)</h2>
+    <label class="field-label" for="messageInput">Masukkan pesan Anda</label>
+    <input
+      id="messageInput"
+      class="text-field"
+      type="text"
+      [value]="typedValue"
+      (input)="inputHandler($event.target.value)"
+      placeholder="Tuliskan sesuatu..."
+    />
+    <p class="field-output">
+      Anda mengetik: <span class="highlight">{{ typedValue || 'belum ada input' }}</span>
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>3. Event Binding (Click)</h2>
+    <button type="button" class="action-button" (click)="clickHandler()">Klik saya</button>
+    <p class="field-output">
+      Jumlah klik: <span class="highlight">{{ clickCount }}</span>
+    </p>
+  </section>
+</div>

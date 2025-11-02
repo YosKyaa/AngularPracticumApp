@@ -1,0 +1,87 @@
+<section class="page">
+  <header class="page__header">
+    <h1>Article Data Showcase</h1>
+  </header>
+
+  <div class="card-grid">
+    <mat-card class="data-card" appearance="outlined" *ngFor="let item of data">
+      <mat-card-header>
+        <mat-card-title>List of Data</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ item }}
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <section class="reddit-section">
+    <header class="reddit-section__header">
+      <h2>Materia Showcase</h2>
+    </header>
+
+    <mat-card class="reddit-form-card" appearance="outlined">
+      <mat-card-content>
+        <form class="reddit-form" (ngSubmit)="addArticle()">
+          <mat-form-field appearance="outline">
+            <mat-label>Article title</mat-label>
+            <input
+              matInput
+              name="articleTitle"
+              [(ngModel)]="newArticleTitle"
+              placeholder="Introduce a headline"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Article link</mat-label>
+            <input
+              matInput
+              name="articleLink"
+              [(ngModel)]="newArticleLink"
+              placeholder="https://example.com"
+              required
+            />
+          </mat-form-field>
+
+          <div class="reddit-form__actions">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!newArticleTitle.trim() || !newArticleLink.trim()">
+              Submit Article
+            </button>
+            <button mat-stroked-button type="button" (click)="resetArticles()">
+              Reset List
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="reddit-list" *ngIf="sortedArticles.length; else emptyList">
+      <mat-card class="reddit-article-card" appearance="outlined" *ngFor="let article of sortedArticles">
+        <mat-card-content class="reddit-article-card__body">
+          <div class="reddit-article-card__votes">
+            <button mat-stroked-button color="primary" type="button" (click)="voteUp(article)">
+              Up
+            </button>
+            <span class="reddit-article-card__score">{{ article.votes }}</span>
+            <button mat-stroked-button color="primary" type="button" (click)="voteDown(article)">
+              Down
+            </button>
+          </div>
+          <div class="reddit-article-card__content">
+            <a [href]="article.link" target="_blank" rel="noopener" class="reddit-article-card__link">
+              {{ article.title }}
+            </a>
+            <div class="reddit-article-card__meta" *ngIf="domain(article.link) as hostname">
+              {{ hostname }}
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <ng-template #emptyList>
+      <p class="reddit-empty">No articles yet. Share something insightful above!</p>
+    </ng-template>
+  </section>
+</section>

@@ -1,0 +1,133 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  background: linear-gradient(180deg, #f9fafb 0%, #e2e8f0 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #111827;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.page__header {
+  text-align: center;
+}
+
+.page__header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.page__header p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 1.1rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: 0 30px 40px -35px rgba(53, 66, 109, 0.45);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #1d4ed8;
+}
+
+.card__description {
+  margin-bottom: 1rem;
+}
+
+.number-list {
+  list-style: none;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+}
+
+.number-list li {
+  background-color: #e0f2fe;
+  color: #0c4a6e;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px rgba(12, 74, 110, 0.15);
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.text-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5f5;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #f8fafc;
+}
+
+.text-field:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+.field-output {
+  margin-top: 0.75rem;
+  color: #374151;
+}
+
+.highlight {
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 12px 24px -15px rgba(79, 70, 229, 0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px -15px rgba(79, 70, 229, 0.8);
+}
+
+.action-button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 640px) {
+  .page {
+    gap: 1.5rem;
+  }
+
+  .page__header h1 {
+    font-size: 2rem;
+  }
+}
