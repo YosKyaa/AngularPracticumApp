@@ -13,6 +13,11 @@ export const routes: Routes = [
     title: 'NgFor & Dynamic Lists'
   },
   {
+    path: 'directives',
+    loadComponent: () => import('./directive-practice').then((m) => m.DirectivePracticeComponent),
+    title: 'Directive Playground'
+  },
+  {
     path: '**',
     redirectTo: ''
   }
